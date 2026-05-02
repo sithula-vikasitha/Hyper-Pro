@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Hyper Pro Web Developers | Tools & Resources</title>
+    <meta name="title" content="Hyper Pro Web Developers | Tools & Resources">
+    <meta name="description" content="Explore useful web development and design tools curated by Hyper Pro Web Developers. Find everything from Hyper Bot to other premium resources.">
+    <meta name="keywords" content="Hyper Pro, Hyper Pro Web Developers, HyperPro, Web Development Tools, UI/UX Design Tools, Hyper Bot, Sri Lanka Web Developer">
+    <meta name="author" content="Sithula Vikasitha">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hyper-cloud-web.github.io/tools.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hyper-cloud-web.github.io/tools.html">
+    <meta property="og:title" content="Hyper Pro Web Developers | Tools & Resources">
+    <meta property="og:description" content="Explore useful web development and design tools curated by Hyper Pro Web Developers. Find everything from Hyper Bot to other premium resources.">
+    <meta property="og:image" content="https://hyper-cloud-web.github.io/assets/main.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hyper-cloud-web.github.io/tools.html">
+    <meta property="twitter:title" content="Hyper Pro Web Developers | Tools & Resources">
+    <meta property="twitter:description" content="Explore useful web development and design tools curated by Hyper Pro Web Developers. Find everything from Hyper Bot to other premium resources.">
+    <meta property="twitter:image" content="https://hyper-cloud-web.github.io/assets/main.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { gray: { 850: '#1f2937', 900: '#111827', 950: '#030712' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #ec4899, #9333ea); border-radius: 5px; }
+        #bg-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; pointer-events: none; opacity: 0.4; }
+        @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes blob { 0% { transform: translate(0px, 0px) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } 100% { transform: translate(0px, 0px) scale(1); } }
+        .animate-blob { animation: blob 10s infinite alternate; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .premium-glass { background: rgba(17, 24, 39, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; }
+        .glass-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass-hover:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(236, 72, 153, 0.4); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(147, 51, 234, 0.2); background: rgba(17, 24, 39, 0.6); }
+        .section-decor { background-image: linear-gradient(120deg, #ec4899 0%, #06b6d4 50%, #9333ea 100%); background-size: 200% 200%; animation: gradient-animation 5s ease infinite; }
+        .bg-overlay { background: radial-gradient(circle at center, transparent 0%, #030712 100%); position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 0.4s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-white font-sans overflow-x-hidden selection:bg-pink-500 selection:text-white">
+
+    <!-- Background Video & Effects -->
+    <video id="bg-video" src="assets/background.mp4" autoplay muted loop playsinline></video>
+    <div class="bg-overlay"></div>
+
+    <!-- Glowing Blobs -->
+    <div class="fixed top-[-10%] left-[-10%] w-[30rem] h-[30rem] bg-pink-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob pointer-events-none z-[-1]"></div>
+    <div class="fixed top-[20%] right-[-10%] w-[30rem] h-[30rem] bg-purple-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animation-delay-2000 pointer-events-none z-[-1]"></div>
+    <div class="fixed bottom-[-20%] left-[20%] w-[30rem] h-[30rem] bg-cyan-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animation-delay-4000 pointer-events-none z-[-1]"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 premium-glass py-3" id="header">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-cyan-500 p-[2px] transform group-hover:rotate-180 transition-transform duration-700">
+                    <img src="assets/logo.png" alt="Hyper Pro Logo" class="w-full h-full rounded-full object-cover bg-gray-900">
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 group-hover:to-white transition-all">Hyper Pro</h1>
+            </a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-sm uppercase tracking-widest hover:text-pink-400 transition-colors relative group">Home</a>
+                <a href="index.html#services" class="text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors relative group">Services</a>
+                <a href="index.html#projects" class="text-sm uppercase tracking-widest hover:text-purple-400 transition-colors relative group">Projects</a>
+                <a href="index.html#process" class="text-sm uppercase tracking-widest hover:text-pink-400 transition-colors relative group">Process</a>
+                <a href="index.html#profile" class="text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors relative group">Profile</a>
+                <a href="index.html#contact" class="text-sm uppercase tracking-widest hover:text-purple-400 transition-colors relative group">Contact</a>
+                <a href="tools.html" class="text-sm uppercase tracking-widest text-yellow-400 transition-colors relative group">Tools</a>
+            </nav>
+
+            <button class="md:hidden text-white hover:text-pink-500 transition-colors" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden absolute top-full left-0 w-full premium-glass border-t border-gray-800" id="mobile-menu">
+            <div class="flex flex-col py-4 px-6 space-y-4">
+                <a href="index.html#home" class="text-lg hover:text-pink-400 transition">Home</a>
+                <a href="index.html#services" class="text-lg hover:text-cyan-400 transition">Services</a>
+                <a href="index.html#projects" class="text-lg hover:text-purple-400 transition">Projects</a>
+                <a href="index.html#process" class="text-lg hover:text-pink-400 transition">Process</a>
+                <a href="index.html#profile" class="text-lg hover:text-cyan-400 transition">Profile</a>
+                <a href="index.html#contact" class="text-lg hover:text-purple-400 transition">Contact</a>
+                <a href="tools.html" class="text-lg text-yellow-400 transition">Tools</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tools Section -->
+    <main class="pt-32 pb-24 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-4">Hyper Pro <span class="text-yellow-400">Tools</span></h2>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">Access our suite of next-generation tools including Hyper Bot and more.</p>
+                <div class="h-1.5 w-24 mx-auto mt-8 rounded-full section-decor"></div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto mb-16">
+                <div class="relative group">
+                    <input type="text" id="tool-search" placeholder="Search tools..." class="w-full bg-gray-900/60 border border-gray-700/50 text-white rounded-full py-4 px-6 pl-14 focus:outline-none focus:border-yellow-400/80 focus:ring-2 focus:ring-yellow-400/20 transition-all premium-glass placeholder-gray-500">
+                    <i class="fas fa-search absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-yellow-400 transition-colors"></i>
+                </div>
+            </div>
+
+            <!-- Tools Grid -->
+            <div id="tools-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="col-span-full flex justify-center py-10" id="tools-loader">
+                    <i class="fas fa-circle-notch fa-spin text-4xl text-yellow-400"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-gray-800/50 premium-glass mt-10">
+        <div class="container mx-auto px-6 py-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Hyper Pro Logo" class="w-8 h-8 rounded-full">
+                    <span class="font-bold text-xl tracking-wider">Hyper Pro</span>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    © 2026 Hyper Pro. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-zndubu14oVmAK3lTQNBMiEQKYb315iU",
+            authDomain: "hyper-pro-a2732.firebaseapp.com",
+            projectId: "hyper-pro-a2732",
+            storageBucket: "hyper-pro-a2732.firebasestorage.app",
+            messagingSenderId: "68141044659",
+            appId: "1:68141044659:web:73e8ac934851fa05ae71c6",
+            measurementId: "G-Q3CRL7XB44"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const toolsContainer = document.getElementById('tools-container');
+        const toolsLoader = document.getElementById('tools-loader');
+        const searchInput = document.getElementById('tool-search');
+        let allTools = [];
+
+        async function loadTools() {
+            try {
+                const q = query(collection(db, "tools"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                allTools = [];
+                querySnapshot.forEach((doc) => {
+                    allTools.push({ id: doc.id, ...doc.data() });
+                });
+                displayTools(allTools);
+            } catch (error) {
+                console.error("Error fetching tools:", error);
+                if (toolsContainer) toolsContainer.innerHTML = `<p class="col-span-full text-center text-red-400">Failed to load tools.</p>`;
+            } finally {
+                if(toolsLoader) toolsLoader.style.display = 'none';
+            }
+        }
+
+        function displayTools(tools) {
+            if (!toolsContainer) return;
+            toolsContainer.innerHTML = '';
+            if (tools.length === 0) {
+                toolsContainer.innerHTML = `<p class="col-span-full text-center text-gray-500">No tools found.</p>`;
+                return;
+            }
+            tools.forEach((tool, index) => {
+                const toolCard = document.createElement('div');
+                toolCard.className = `premium-glass glass-hover p-8 md:p-10 rounded-2xl border-t-4 border-t-yellow-400 active group`;
+                
+                let iconHtml = '';
+                if (tool.emoji) {
+                    iconHtml = `<span class="text-5xl block text-center">${tool.emoji}</span>`;
+                } else if (tool.iconClass) {
+                    iconHtml = `<i class="${tool.iconClass} text-4xl text-yellow-400"></i>`;
+                } else if (tool.iconUrl) {
+                    iconHtml = `<img src="${tool.iconUrl}" class="w-10 h-10 object-contain rounded" alt="${tool.name}">`;
+                } else {
+                    iconHtml = `<i class="fas fa-wrench text-4xl text-yellow-400"></i>`;
+                }
+
+                toolCard.innerHTML = `
+                    <div class="w-16 h-16 rounded-2xl bg-yellow-400/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-yellow-400/30">${iconHtml}</div>
+                    <h4 class="text-2xl md:text-3xl font-bold mb-4">${tool.name}</h4>
+                    <p class="text-gray-400 leading-relaxed mb-6">${tool.description || ''}</p>
+                    <a href="${tool.url}" target="_blank" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-semibold transition-colors">Open Tool <i class="fas fa-arrow-right text-sm"></i></a>
+                `;
+                toolsContainer.appendChild(toolCard);
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase().trim();
+                if (!term) {
+                    displayTools(allTools);
+                    return;
+                }
+
+                const filtered = allTools
+                    .map(tool => {
+                        let score = 0;
+                        const name = tool.name.toLowerCase();
+                        const desc = (tool.description || "").toLowerCase();
+                        const tags = (tool.tags || "").toLowerCase();
+                        
+                        // Exact match in name
+                        if (name === term) score += 100;
+                        // Name starts with term
+                        else if (name.startsWith(term)) score += 80;
+                        // Name includes term
+                        else if (name.includes(term)) score += 60;
+                        
+                        // Tags include term (High boost)
+                        if (tags.split(',').map(tag => tag.trim().toLowerCase()).includes(term)) score += 95;
+                        else if (tags.includes(term)) score += 70;
+                        
+                        // Description includes term
+                        if (desc.includes(term)) score += 30;
+                        
+                        return { ...tool, score };
+                    })
+                    .filter(t => t.score > 0)
+                    .sort((a, b) => b.score - a.score);
+                    
+                displayTools(filtered);
+            });
+        }
+        loadTools();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

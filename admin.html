@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper Pro | Admin Panel</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        gray: { 850: '#1f2937', 900: '#111827', 950: '#030712' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #ec4899, #9333ea); border-radius: 5px; }
+        .premium-glass {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-white font-sans overflow-x-hidden selection:bg-pink-500 selection:text-white min-h-screen">
+    
+    <!-- Header -->
+    <header class="w-full z-50 premium-glass border-b border-gray-800 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-cyan-500 p-[2px]">
+                    <img src="assets/logo.png" alt="Logo" class="w-full h-full rounded-full object-cover bg-gray-900">
+                </div>
+                <h1 class="text-2xl font-extrabold tracking-wider">Hyper Pro <span class="text-yellow-400">Admin</span></h1>
+            </a>
+            <div class="flex gap-6">
+                <a href="index.html" class="text-gray-400 hover:text-white transition"><i class="fas fa-home mr-2"></i>Home</a>
+                <a href="tools.html" class="text-gray-400 hover:text-white transition"><i class="fas fa-wrench mr-2"></i>Tools Page</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+        
+        <!-- Tool Form -->
+        <div class="w-full lg:w-1/3">
+            <div class="premium-glass p-8 rounded-2xl border-t-4 border-t-pink-500 sticky top-24">
+                <h2 id="formTitle" class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-plus-circle text-pink-500"></i> Add New Tool</h2>
+                
+                <form id="tool-form" class="space-y-5">
+                    <input type="hidden" id="toolId">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Tool Name *</label>
+                        <input type="text" id="toolName" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Tool URL *</label>
+                        <input type="url" id="toolUrl" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Description *</label>
+                        <textarea id="toolDesc" required rows="3" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Keywords / Tags (optional)</label>
+                        <input type="text" id="toolTags" placeholder="e.g., hosting, web, cloud" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                        <p class="text-xs text-gray-500 mt-1">Comma separated. Used to boost search relevance.</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Emoji Icon (optional)</label>
+                        <input type="text" id="toolEmoji" placeholder="e.g., 🚀" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Icon Image URL (optional)</label>
+                        <input type="url" id="toolIconUrl" placeholder="https://example.com/icon.png" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">FontAwesome Icon Class (optional)</label>
+                        <input type="text" id="toolIconClass" placeholder="e.g., fas fa-robot" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-pink-500 transition-colors">
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <button type="submit" id="submitBtn" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all flex justify-center items-center gap-2">
+                            <span>Add Tool</span>
+                        </button>
+                        <button type="button" id="cancelBtn" class="hidden flex-1 bg-gray-800 text-white font-bold py-3 px-6 rounded-lg border border-gray-700 hover:bg-gray-700 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                    <p id="formMessage" class="text-sm text-center hidden"></p>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                    <p class="text-sm text-gray-400 mb-4">Quick Add</p>
+                    <button id="addHyperBotBtn" class="w-full bg-gray-800 hover:bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg transition-colors border border-gray-700 hover:border-emerald-500 flex items-center justify-center gap-2">
+                        <i class="fas fa-robot text-emerald-400"></i> Add "Hyper Bot"
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools List -->
+        <div class="w-full lg:w-2/3">
+            <div class="premium-glass p-8 rounded-2xl border-t-4 border-t-cyan-500">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2"><i class="fas fa-list text-cyan-500"></i> Manage Tools</h2>
+                
+                <div id="tools-loader" class="flex justify-center py-10">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-cyan-500"></i>
+                </div>
+                
+                <div class="overflow-x-auto hidden" id="tools-table-container">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="py-3 px-4 text-gray-400 font-medium">Tool</th>
+                                <th class="py-3 px-4 text-gray-400 font-medium">URL</th>
+                                <th class="py-3 px-4 text-gray-400 font-medium text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tools-list">
+                            <!-- Tools rows injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <p id="no-tools-msg" class="text-gray-500 text-center py-10 hidden">No tools found.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-zndubu14oVmAK3lTQNBMiEQKYb315iU",
+            authDomain: "hyper-pro-a2732.firebaseapp.com",
+            projectId: "hyper-pro-a2732",
+            storageBucket: "hyper-pro-a2732.firebasestorage.app",
+            messagingSenderId: "68141044659",
+            appId: "1:68141044659:web:73e8ac934851fa05ae71c6",
+            measurementId: "G-Q3CRL7XB44"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // State
+        let isEditing = false;
+        let toolsData = [];
+
+        // DOM Elements
+        const form = document.getElementById('tool-form');
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const formTitle = document.getElementById('formTitle');
+        const formMessage = document.getElementById('formMessage');
+        const toolsList = document.getElementById('tools-list');
+        const toolsLoader = document.getElementById('tools-loader');
+        const tableContainer = document.getElementById('tools-table-container');
+        const noToolsMsg = document.getElementById('no-tools-msg');
+        const addHyperBotBtn = document.getElementById('addHyperBotBtn');
+
+        // Fields
+        const idField = document.getElementById('toolId');
+        const nameField = document.getElementById('toolName');
+        const urlField = document.getElementById('toolUrl');
+        const descField = document.getElementById('toolDesc');
+        const tagsField = document.getElementById('toolTags');
+        const emojiField = document.getElementById('toolEmoji');
+        const iconUrlField = document.getElementById('toolIconUrl');
+        const iconClassField = document.getElementById('toolIconClass');
+
+        // Load Tools
+        async function loadTools() {
+            try {
+                toolsLoader.classList.remove('hidden');
+                tableContainer.classList.add('hidden');
+                noToolsMsg.classList.add('hidden');
+
+                const q = query(collection(db, "tools"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                toolsList.innerHTML = '';
+                toolsData = [];
+                
+                if (querySnapshot.empty) {
+                    noToolsMsg.classList.remove('hidden');
+                } else {
+                    querySnapshot.forEach((documentSnapshot) => {
+                        const tool = documentSnapshot.data();
+                        const id = documentSnapshot.id;
+                        toolsData.push({ id, ...tool });
+                        
+                        const tr = document.createElement('tr');
+                        tr.className = 'border-b border-gray-800 hover:bg-gray-800/50 transition-colors';
+                        
+                        let iconPreview = '';
+                        if (tool.emoji) {
+                            iconPreview = `<span class="text-xl w-5 text-center block">${tool.emoji}</span>`;
+                        } else if (tool.iconClass) {
+                            iconPreview = `<i class="${tool.iconClass} text-gray-400 w-5 text-center"></i>`;
+                        } else if (tool.iconUrl) {
+                            iconPreview = `<img src="${tool.iconUrl}" class="w-5 h-5 object-contain rounded">`;
+                        } else {
+                            iconPreview = `<i class="fas fa-wrench text-gray-400 w-5 text-center"></i>`;
+                        }
+
+                        tr.innerHTML = `
+                            <td class="py-4 px-4 font-medium flex items-center gap-3">
+                                ${iconPreview}
+                                <span>${tool.name}</span>
+                            </td>
+                            <td class="py-4 px-4">
+                                <a href="${tool.url}" target="_blank" class="text-cyan-400 hover:text-cyan-300 text-sm truncate max-w-[200px] block">${tool.url}</a>
+                            </td>
+                            <td class="py-4 px-4 text-right">
+                                <button onclick="editTool('${id}')" class="text-yellow-400 hover:text-yellow-300 transition-colors p-2 rounded hover:bg-yellow-400/10 mr-2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="deleteTool('${id}')" class="text-red-400 hover:text-red-300 transition-colors p-2 rounded hover:bg-red-400/10">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        `;
+                        toolsList.appendChild(tr);
+                    });
+                    tableContainer.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("Error loading tools:", error);
+                alert("Error loading tools. Check console.");
+            } finally {
+                toolsLoader.classList.add('hidden');
+            }
+        }
+
+        // Form Submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                name: nameField.value,
+                url: urlField.value,
+                description: descField.value,
+                tags: tagsField.value,
+                emoji: emojiField.value,
+                iconUrl: iconUrlField.value,
+                iconClass: iconClassField.value,
+                updatedAt: serverTimestamp()
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            try {
+                if (isEditing) {
+                    await updateDoc(doc(db, "tools", idField.value), data);
+                    showMessage('Tool updated successfully!', 'text-green-400');
+                    resetForm();
+                } else {
+                    data.createdAt = serverTimestamp();
+                    await addDoc(collection(db, "tools"), data);
+                    showMessage('Tool added successfully!', 'text-green-400');
+                    form.reset();
+                }
+                loadTools();
+            } catch (error) {
+                console.error("Error processing tool:", error);
+                showMessage('Error processing tool. Check console.', 'text-red-400');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>${isEditing ? 'Update Tool' : 'Add Tool'}</span>`;
+            }
+        });
+
+        // Edit Tool
+        window.editTool = (id) => {
+            const tool = toolsData.find(t => t.id === id);
+            if (!tool) return;
+
+            isEditing = true;
+            formTitle.innerHTML = '<i class="fas fa-edit text-yellow-500"></i> Edit Tool';
+            submitBtn.innerHTML = '<span>Update Tool</span>';
+            cancelBtn.classList.remove('hidden');
+            
+            idField.value = id;
+            nameField.value = tool.name || '';
+            urlField.value = tool.url || '';
+            descField.value = tool.description || '';
+            tagsField.value = tool.tags || '';
+            emojiField.value = tool.emoji || '';
+            iconUrlField.value = tool.iconUrl || '';
+            iconClassField.value = tool.iconClass || '';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // Reset Form
+        function resetForm() {
+            isEditing = false;
+            form.reset();
+            idField.value = '';
+            formTitle.innerHTML = '<i class="fas fa-plus-circle text-pink-500"></i> Add New Tool';
+            submitBtn.innerHTML = '<span>Add Tool</span>';
+            cancelBtn.classList.add('hidden');
+        }
+
+        cancelBtn.addEventListener('click', resetForm);
+
+        // Delete Tool
+        window.deleteTool = async (id) => {
+            if(confirm('Are you sure you want to delete this tool?')) {
+                try {
+                    await deleteDoc(doc(db, "tools", id));
+                    if (isEditing && idField.value === id) resetForm();
+                    loadTools();
+                } catch (error) {
+                    console.error("Error deleting tool:", error);
+                    alert("Error deleting tool. Check console.");
+                }
+            }
+        };
+
+        // Quick Add Hyper Bot
+        addHyperBotBtn.addEventListener('click', async () => {
+            addHyperBotBtn.disabled = true;
+            addHyperBotBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+            
+            try {
+                await addDoc(collection(db, "tools"), {
+                    name: "Hyper Bot",
+                    url: "https://sithula-vikasitha.github.io/Hyper-Bot/",
+                    description: "Your intelligent AI assistant for all web development queries and support. Powered by advanced language models.",
+                    tags: "bot, ai, support, assistant",
+                    emoji: "🤖",
+                    iconClass: "fas fa-robot",
+                    createdAt: serverTimestamp()
+                });
+                showMessage('Hyper Bot added successfully!', 'text-emerald-400');
+                loadTools();
+            } catch (error) {
+                console.error("Error adding Hyper Bot:", error);
+                showMessage('Error adding tool. Check console.', 'text-red-400');
+            } finally {
+                addHyperBotBtn.disabled = false;
+                addHyperBotBtn.innerHTML = '<i class="fas fa-robot text-emerald-400"></i> Add "Hyper Bot"';
+            }
+        });
+
+        function showMessage(msg, colorClass) {
+            formMessage.textContent = msg;
+            formMessage.className = `text-sm text-center mt-4 block ${colorClass}`;
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Init
+        loadTools();
+    </script>
+</body>
+</html>
